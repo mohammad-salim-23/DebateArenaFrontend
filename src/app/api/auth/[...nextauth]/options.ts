@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import CredentialsProvider from "next-auth/providers/credentials";
-import { NextAuthOptions, User } from "next-auth";
+import { NextAuthOptions } from "next-auth";
 import axios from "axios";
 
 declare module "next-auth" {
@@ -27,7 +27,7 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials: any) {
         try {
-          const res = await axios.post(`${process.env.BACKEND_URL}/api/login`, {
+          const res = await axios.post(`${process.env.NEXT_PUBLIC_BASE_API}/login`, {
             email: credentials.email,
             password: credentials.password,
           });

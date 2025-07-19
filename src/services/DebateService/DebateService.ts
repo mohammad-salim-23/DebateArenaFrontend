@@ -18,19 +18,36 @@ export const createDebate = async (debateData: FormData, token: string) => {
   return res.data;
 };
 
-
-export const getAllDebates = async () => {
+export const getAllDebates = async (token: string) => {
   const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API}/debates`, {
     withCredentials: true,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   });
   return res.data;
 };
 
-export const joinDebate = async (id: string, side: string) => {
+export const getSingleDebate = async (id: string, token: string) => {
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API}/debates/${id}`, {
+    withCredentials: true,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  return res.data;
+};
+
+export const joinDebate = async (id: string, side: string, token: string) => {
   const res = await axios.post(
     `${process.env.NEXT_PUBLIC_BASE_API}/debates/join/${id}`,
     { side },
-    { withCredentials: true }
+    {
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
   );
   return res.data;
 };

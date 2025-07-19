@@ -42,7 +42,7 @@ const Page = () => {
     setIsSubmitting(true);
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/register`,
+        `${process.env.NEXT_PUBLIC_BASE_API}/auth/register`,
         data
       );
 

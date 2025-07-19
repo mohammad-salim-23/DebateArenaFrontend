@@ -129,7 +129,7 @@ const Debates = () => {
                   </p>
 
                   <div className="mt-auto">
-                    <Link href={`/debates/${debate._id}`}>
+                    <Link href={`/details/${debate._id}`}>
                       <NLButton
                         variant="outline"
                         className="mt-3 w-full cursor-pointer text-teal-400 bg-teal-400 font-bold hover:bg-teal-600 hover:text-white"

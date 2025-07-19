@@ -1,9 +1,13 @@
-import Navbar from "@/components/shared/Navbar";
+import Banner from "@/components/Banner/Banner";
+
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+   <div>
+    <Banner/>
+    <div className="container mx-auto px-3 my-10 lg:my-20">
      
     </div>
+   </div>
   );
 }

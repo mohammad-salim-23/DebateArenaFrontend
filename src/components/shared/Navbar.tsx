@@ -77,7 +77,7 @@ export default function Navbar() {
                   <DropdownMenu>
                     <DropdownMenuTrigger className="outline-none cursor-pointer">
                       <Avatar className="border-2 border-primary-500 rounded-full">
-                        <AvatarImage src={user?.image || ""} />
+                        <AvatarImage src={user?.image || "https://s.cafebazaar.ir/images/icons/cute.love.dp-fc9c8497-522b-4848-bd66-72ee57b9d195_512x512.png"} />
                         <AvatarFallback>Profile</AvatarFallback>
                       </Avatar>
                     </DropdownMenuTrigger>

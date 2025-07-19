@@ -18,22 +18,16 @@ export const createDebate = async (debateData: FormData, token: string) => {
   return res.data;
 };
 
-export const getAllDebates = async (token: string) => {
+export const getAllDebates = async () => {
   const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API}/debates`, {
     withCredentials: true,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
   });
   return res.data;
 };
 
-export const getSingleDebate = async (id: string, token: string) => {
+export const getSingleDebate = async (id: string) => {
   const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_API}/debates/${id}`, {
     withCredentials: true,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
   });
   return res.data;
 };

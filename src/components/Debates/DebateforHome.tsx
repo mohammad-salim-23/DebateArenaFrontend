@@ -5,8 +5,9 @@ import { getAllDebates } from "@/services/DebateService/DebateService";
 import { Button } from "@/components/ui/button";
 import { FaList } from "react-icons/fa";
 import { LuLayoutGrid } from "react-icons/lu";
-
 import Image from "next/image";
+import Link from "next/link";
+import NLButton from "../ui/core/ImageUploader/NLButton";
 
 type TDebate = {
   _id: string;
@@ -32,7 +33,6 @@ const Debates = () => {
 
   useEffect(() => {
     const fetchDebates = async () => {
-      setLoading(true);
       try {
         const res = await getAllDebates();
         setDebates(res.data || []);
@@ -53,7 +53,7 @@ const Debates = () => {
 
   return (
     <div>
-      {/* Filters & Listings */}
+    
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
         <div>
           <h2 className="text-2xl font-bold">Explore Debates</h2>
@@ -103,27 +103,41 @@ const Debates = () => {
       ) : (
         <div>
           {isGrid ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {paginatedData.map((debate) => (
                 <div
                   key={debate._id}
-                  className="border rounded p-4 hover:shadow-lg transition"
+                  className="border rounded p-4 hover:shadow-lg transition flex flex-col"
                 >
                   <Image
-                    src={debate.image}
+                    src={
+                      debate.image ||
+                      "https://i.pinimg.com/736x/36/7b/db/367bdb971bc0250a3329df839c874c20.jpg"
+                    }
                     alt={debate.title}
-                    width={128}
-                    height={128}
-                    className="object-cover rounded"
+                    width={400}
+                    height={200}
+                    className="object-cover rounded mb-3"
                   />
                   <h3 className="text-lg font-bold">{debate.title}</h3>
-                  <p className="text-gray-600">{debate.description}</p>
+                  <p className="text-gray-600 flex-1">{debate.description}</p>
                   <p className="text-sm text-gray-400 mt-1">
                     Category: {debate.category}
                   </p>
                   <p className="text-sm text-gray-400">
                     Ends At: {new Date(debate.endsAt).toLocaleString()}
                   </p>
+
+                  <div className="mt-auto">
+                    <Link href={`/debates/${debate._id}`}>
+                      <NLButton
+                        variant="outline"
+                        className="mt-3 w-full cursor-pointer text-teal-400 bg-teal-400 font-bold hover:bg-teal-600 hover:text-white"
+                      >
+                        View Details
+                      </NLButton>
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
@@ -135,21 +149,34 @@ const Debates = () => {
                   className="border rounded p-4 flex gap-4 mb-4 hover:shadow-lg transition"
                 >
                   <Image
-                    src={debate.image}
+                    src={
+                      debate.image ||
+                      "https://i.pinimg.com/736x/36/7b/db/367bdb971bc0250a3329df839c874c20.jpg"
+                    }
                     alt={debate.title}
                     width={128}
                     height={128}
                     className="object-cover rounded"
                   />
-                  <div>
+                  <div className="flex flex-col flex-1">
                     <h3 className="text-lg font-bold">{debate.title}</h3>
-                    <p className="text-gray-600">{debate.description}</p>
+                    <p className="text-gray-600 flex-1">{debate.description}</p>
                     <p className="text-sm text-gray-400 mt-1">
                       Category: {debate.category}
                     </p>
                     <p className="text-sm text-gray-400">
                       Ends At: {new Date(debate.endsAt).toLocaleString()}
                     </p>
+                    <div className="mt-auto">
+                      <Link href={`/debates/${debate._id}`}>
+                        <NLButton
+                          variant="outline"
+                          className="mt-3 w-full cursor-pointer text-teal-400 bg-teal-400 font-bold hover:bg-teal-600 hover:text-white"
+                        >
+                          View Details
+                        </NLButton>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -162,3 +189,4 @@ const Debates = () => {
 };
 
 export default Debates;
+ 

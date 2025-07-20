@@ -1,0 +1,8 @@
+@keyframes pulseBright {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.5); }
+}
+
+.pulseBright {
+  animation: pulseBright 1.5s ease-in-out infinite;
+}

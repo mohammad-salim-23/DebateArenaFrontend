@@ -29,12 +29,12 @@ const Leaderboard = () => {
   return (
     <div className="p-4">
       <div className="mb-4">
-        <button onClick={() => setFilter("weekly")} className="mr-2 px-3 py-1 bg-blue-500 text-white rounded">Weekly</button>
-        <button onClick={() => setFilter("monthly")} className="mr-2 px-3 py-1 bg-green-500 text-white rounded">Monthly</button>
-        <button onClick={() => setFilter("all")} className="px-3 py-1 bg-purple-500 text-white rounded">All Time</button>
+        <button onClick={() => setFilter("weekly")} className="mr-2 px-3 py-1 bg-teal-500 text-white rounded cursor-pointer">Weekly</button>
+        <button onClick={() => setFilter("monthly")} className="mr-2 px-3 py-1 bg-green-500 text-white rounded cursor-pointer">Monthly</button>
+        <button onClick={() => setFilter("all")} className="px-3 py-1 bg-purple-500 text-white rounded cursor-pointer">All Time</button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1  md:grid-cols-4 gap-4">
         {scoreboard.map((user, index) => (
           <div key={user.userId} className="bg-gray-100 p-4 rounded shadow">
             <p className="text-xl font-bold">#{index + 1}</p>

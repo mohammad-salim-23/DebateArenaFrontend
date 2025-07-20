@@ -1,5 +1,5 @@
 "use client";
-
+import styles from '@/Button.module.css';
 import React, { useState } from "react";
 import Image from "next/image";
 import NLButton from "@/components/ui/core/ImageUploader/NLButton";
@@ -47,13 +47,14 @@ export default function Banner() {
           Create debates, share your opinions, and explore others’ perspectives.
         </p>
 
-        <NLButton
-          onClick={handleCreateDebate}
-          variant="outline"
-          className="px-6 py-3 text-lg border-teal-500 text-teal-500 hover:bg-white hover:text-teal-700 transition font-bold "
-        >
-          Create Debate
-        </NLButton>
+ <NLButton
+  onClick={handleCreateDebate}
+  variant="outline"
+  className={`relative px-6 py-3 text-lg border-teal-500 text-teal-500 hover:bg-white hover:text-teal-700 transition font-bold ${styles.pulseBright}`}
+>
+  Create Debate
+</NLButton>
+
       </div>
 
       {/* Debate Form Modal */}

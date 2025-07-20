@@ -31,6 +31,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/all-debates", label: "All Debates" },
+     { href: "/leaderboard", label: "Leaderboard" },
   ];
 
   return (
@@ -44,7 +45,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex flex-grow justify-center">
+        <div className="hidden md:flex justify-center flex-1">
           <ul className="flex space-x-6 text-sm text-gray-800 font-medium">
             {navLinks.map((link) => (
               <li
@@ -61,7 +62,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center">
-          {/* Desktop Buttons + Dropdown */}
+       
           <nav className="md:flex gap-2 items-center">
             {loading ? (
               <div className="flex items-center gap-4">
@@ -82,14 +83,8 @@ export default function Navbar() {
                       </Avatar>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
-                      <DropdownMenuItem className="cursor-pointer">
-                        <Link href={`/${user.role}/update-profile`}>
-                          My Profile
-                        </Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem className="cursor-pointer">
-                        <Link href={`/${user.role}`}>Dashboard</Link>
-                      </DropdownMenuItem>
+                    
+                      
                       <DropdownMenuSeparator />
                       <DropdownMenuItem
                         onClick={handleLogOut}
